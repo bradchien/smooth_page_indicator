@@ -55,9 +55,9 @@ class SmoothPageIndicator extends AnimatedWidget {
 
   double get _offset {
     try {
-      return controller.page ?? controller.initialPage.toDouble();
+      return (controller.page ?? controller.initialPage.toDouble()) % count;
     } catch (_) {
-      return controller.initialPage.toDouble();
+      return (controller.initialPage.toDouble()) % count;
     }
   }
 }
@@ -113,7 +113,7 @@ class SmoothIndicator extends StatelessWidget {
         child: CustomPaint(
           size: _size,
           // rebuild the painter with the new offset every time it updates
-          painter: effect.buildPainter(count, offset),
+          painter: effect.buildPainter(count, offset % count),
         ),
       ),
     );
@@ -124,7 +124,7 @@ class SmoothIndicator extends StatelessWidget {
       var index = effect.hitTestDots(
         details.localPosition.dx,
         count,
-        offset,
+        offset % count,
       );
       if (index != -1 && index != offset.toInt()) {
         onDotClicked(index);

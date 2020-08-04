@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../effects/expanding_dots_effect.dart';
 
+import '../effects/expanding_dots_effect.dart';
 import 'indicator_painter.dart';
 
 class ExpandingDotsPainter extends IndicatorPainter {
@@ -28,7 +28,7 @@ class ExpandingDotsPainter extends IndicatorPainter {
       if (i == current) {
         color = Color.lerp(effect.activeDotColor, effect.dotColor, dotOffset);
         width = activeDotWidth - expansion;
-      } else if (i - 1 == current) {
+      } else if ((i - 1) % count == current) {
         width = effect.dotWidth + expansion;
         color =
             Color.lerp(effect.activeDotColor, effect.dotColor, 1.0 - dotOffset);
