@@ -49,7 +49,7 @@ class ScrollingDotsPainter extends IndicatorPainter {
       if (index == current) {
         color = Color.lerp(effect.activeDotColor, effect.dotColor, dotOffset);
         scale = effect.activeDotScale - (activeScale * dotOffset);
-      } else if (index - 1 == current) {
+      } else if ((index - 1) % count == current) {
         color = Color.lerp(effect.dotColor, effect.activeDotColor, dotOffset);
         scale = 1.0 + (activeScale * dotOffset);
       } else if (count - 1 < effect.maxVisibleDots) {

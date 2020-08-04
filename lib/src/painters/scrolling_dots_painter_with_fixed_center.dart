@@ -24,7 +24,7 @@ class ScrollingDotsWithFixedCenterPainter extends IndicatorPainter {
       var color = effect.dotColor;
       if (index == current) {
         color = Color.lerp(effect.activeDotColor, effect.dotColor, dotOffset);
-      } else if (index - 1 == current) {
+      } else if ((index - 1) % count == current) {
         color =
             Color.lerp(effect.activeDotColor, effect.dotColor, 1 - dotOffset);
       }

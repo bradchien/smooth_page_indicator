@@ -25,7 +25,7 @@ class TransitionPainter extends IndicatorPainter {
       var color = effect.dotColor;
       if (i == current) {
         color = Color.lerp(effect.activeDotColor, effect.dotColor, dotOffset);
-      } else if (i - 1 == current) {
+      } else if ((i - 1) % count == current) {
         color =
             Color.lerp(effect.activeDotColor, effect.dotColor, 1.0 - dotOffset);
       }
